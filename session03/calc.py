@@ -6,7 +6,7 @@ r = 5
 pi = 3.1415926
 v = (4 / 3) * pi * r * r * r
 print("The volume of a sphere with radiu 5 equal to", f"{v:5.2f}.")
-""
+
 # Q2
 #  Suppose the cover price of a book is $24.95, but bookstores get a 40% discount.
 # Shipping costs $3 for the first copy and 75 cents for each additional copy.
@@ -21,7 +21,7 @@ shipcost = (n - 1) * 0.75 + 3
 # but the knowledge I learened could not support with it.
 # INTENDED CODE : if n=1 then shipcost =3,elif n>1 then shipcost=3+(n-1)*0.75,else shipcost=0
 wholesale = n * Price * (1 - discount) + shipcost
-print("the wholesale cost for 60 copies equal to", f"{wholesale:.5}$.")
+print(f"the wholesale cost for 60 copies equal to {wholesale:.5}$.")
 
 
 # Question 3
@@ -32,7 +32,7 @@ easypace = 8 * 60 + 15
 tempo = 7 * 60 + 12
 m_easypace = 2
 m_tempo = 3
-Time = m_easypace * easypace + tempo * m_tempo
+Time = m_easypace * easypace + tempo * m_tempo  
 Time_min = Time / 60
 print(
     "6:52+",
@@ -45,11 +45,14 @@ sum_timeinmin = Time_min + Current_Time
 Expected_Timehour = sum_timeinmin / 60
 Expected_Timemin = (Expected_Timehour - 7) * 60
 
-print(f"{Expected_Timehour:1.0f}", ":", f"{Expected_Timemin:3.0f}")
+print(f"{int(Expected_Timehour):1.0f}", ":", f"{Expected_Timemin:3.0f}")
 
 # I would like to calculate the total minutes together and
 # then show the hours and minutes seperatedly, my problem here is I could not make 7.50 turn in to 7:30
 #  But I cannot keep 7.5 round up to 8 here
+#import datetime or import mathImport math
+#Math floor (time) take the number smaller than 7.5=7
+
 
 
 # Question 4
