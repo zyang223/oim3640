@@ -52,10 +52,10 @@ print("The number you chose is", a, b)
 sum = a + b
 print(a, "+", b, "=", sum)
 differences = a - b
-print(a, "-", b, "=", differences)
+print(f"{a} - {b}={differences:.2f}")
 multiple = a * b
-print(a, "*", b, "=", f"{multiple:.2f}")
+print(f"{a} * {b}= {multiple:.2f}")
 quotient = a / b
-print(a, "/", b, "=", f"{quotient:.2f}")
+print(f"{a} / {b}= {quotient:.2f}")
 exponentiation = a**b
-print(a, "^", b, "=", f"{exponentiation:.2f}")
+print(f"{a} ^ {b}={exponentiation:.2f}")
