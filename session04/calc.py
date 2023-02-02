@@ -1,10 +1,10 @@
 # homework exercise 04 written by Zide Yang on Jan 27 2023
 # Question 1
 # 1) a=3 a+2          a=5 integer
-# 2) a=a+1.0 a,        A   not defined
+# 2) a=a+1.0 a,        A   not defined (float)
 # 3)a=3, b ,           b not defined
-# 4)a=3, a==5.0                 false
-# 5)b=10, c=b>9 c=10            true
+# 4)a=3, a==5.0                 false  boolean
+# 5)b=10, c=b>9 c=10            true  boolean
 # 6)5/2==5/2.0                  true
 
 
@@ -46,8 +46,8 @@ print(
 # and exponentiation of the integers in the format of mathematical equations.
 # Use f-string to format the output nicely. Example output:
 
-a = int(input())
-b = int(input())
+a = float(input())
+b = float(input())
 print("The number you chose is", a, b)
 sum = a + b
 print(a, "+", b, "=", sum)
