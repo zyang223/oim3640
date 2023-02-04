@@ -2,9 +2,9 @@
 
 # Q1
 # What is the volume of a sphere with radius 5?
-r = 5
+radius = 5
 pi = 3.1415926
-v = (4 / 3) * pi * r * r * r
+v = (4 / 3) * pi * radius * radius * radius
 print("The volume of a sphere with radiu 5 equal to", f"{v:5.2f}.")
 
 # Q2

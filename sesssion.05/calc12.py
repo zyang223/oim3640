@@ -10,7 +10,7 @@ print(math.log10(100))
 print(min(3, 4, 5, 6))
 print(min(-3, -4, -5, -6))
 # min
-print(ord("a"))
+print(ord("a    "))
 print(ord("$"))
 # ord
 print(chr(97))
