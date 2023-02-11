@@ -23,22 +23,22 @@ def draw_s2(t,n,degree,X):
 
 #q3 I think I have some identicattion issue on this problem about the picture ( Math problem!)which kind of shape should we start with?
 import math
-def triangle(t,a,x):
+def triangle(t,a):
     t.bk(a)
     t.lt(90)
     t.bk(a)
     t.rt(45)
-    t.fd(a+x)
+    t.fd(a*2)
 
     
-def draw_s3(t,n,a,x,degree):
+def draw_s3(t,n,a,degree):
     for i in range(n):
-        triangle(t,a,x)
+        triangle(t,a)
         a=a+4
-        x=x+4
         a1.rt(degree)
+    t.speed(0)
 
-# draw_s3(a1,70,90,95,2)
+draw_s3(a1,70,90,1)
 
 #q4 Get helped from the internet and other websites
 
@@ -50,7 +50,7 @@ def draw_s4(t,a,b,degree,n):
         turtle.goto(x,y)
         degree=degree+1
 
-draw_s4(a1,2,2,0,10)
+# draw_s4(a1,2,2,0,10)
         
 
 

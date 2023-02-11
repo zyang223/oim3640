@@ -54,7 +54,7 @@ def arc(t, r, angle):
     """a more general version of circle,which determines what fraction of a circle to draw"""
     arc_length = 2 * math.pi * r * angle / 360
     n = int(arc_length / 3) + 1
-    step_length =arc_length / n
+    step_length = arc_length / n
     step_angle =float(angle) / n
     # for i in range (n):
     #     t.fd(step_length)
