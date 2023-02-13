@@ -9,8 +9,7 @@ def check_fermat (a,b,c,n):
         print("No, that doesn\'t work.")
 #Ex102
 def check():
-  """prompts the user to input values 
-  for a, b, c and n, converts them to integers
+  """prompts the user to input values for a, b, c and n, converts them to integers 
   and uses check_fermat to check whether they violate Fermat theorem."""
   a=int(input("please enter a value for a"))
   b=int(input("please enter a value for b"))
