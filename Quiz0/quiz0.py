@@ -42,7 +42,12 @@ Notice:
 def transfer2(e,weight):
     if e=="moon":
         m=weight*0.165
-    elif e=="mars"
+        return m
+    elif e=="mars":
         m=weight *0.378
-    elif e==""
-    v=earth*0.904
+        return m
+    elif e=="venus":
+        m=weight*0.904
+        return m
+
+print(transfer2("mars",10))
