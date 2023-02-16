@@ -17,6 +17,16 @@ def sum_up(n):
 print(sum_up(1000))
 """when to use for loop
 -when we know eactly how many times to repeat a certain code block"""
+"""
+When to use for loop:
+    - when we know exactly how many times to repeat a certain code block
+    - when we iterate over a collection of items
+        - a string
+        - a list
+        - a tuple
+        - a dictionary
+When to use while loop:
+    - if we only know when / what condition to stop, and we don't know how many times
+"""
 
-
- 
+    
