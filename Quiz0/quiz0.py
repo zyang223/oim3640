@@ -40,7 +40,7 @@ Notice:
 3. Write your own test code, i.e. call the function.
 """
 def transfer2(e,weight):
-    if e=="moon":
+    if e.lower()=="moon":
         m=weight*0.165
         return m
     elif e=="mars":
@@ -50,4 +50,4 @@ def transfer2(e,weight):
         m=weight*0.904
         return m
 
-print(transfer2("mars",10))
+print(transfer2("MOON",10))
