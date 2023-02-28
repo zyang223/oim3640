@@ -2,13 +2,12 @@
 # print(os.getcwd())
 
 
-# # Assume words.txt is under data folder
+# Assume words.txt is under data folder
 # f = open('data/words.txt')
 # line = f.readline()
 # print(line)
 
-
-f = open('data/words.txt')
+# f = open('data/words.txt')
 
 # number_of_words = 0
 
@@ -19,52 +18,59 @@ f = open('data/words.txt')
 # print(number_of_words)
 
 
-# def find_long_words():
-#     """
-#     prints only the words with more than 20 characters
-#     """
-f = open('data/words.txt')  # Assume words.txt is under data folder
+def find_long_words():
+    """
+    prints only the words with more than 20 characters
+    """
+    f = open('data/words.txt')  # Assume words.txt is under data folder
 
-#     for line in f:
-#         word = line.strip()
-#         if len(word) > 20:
-#             print(word, len(word))
-
-
-# find_long_words()
+    for line in f:
+        word = line.strip()
+        if len(word) > 20:
+            print(word, len(word))
+find_long_words()
 
 
 def has_no_e(word):
     """
     returns True if the given word doesn't have the letter "e" in it
     """
-    if "e" in word.lower():
-        return False
-    else:
+    if 'e' not in word.lower():
         return True
-    # return"e" not in word.lower()
+    else:
+        # return False
+        return 'e' not in word.lower()
 
 
-
-# print(has_no_e('Babson'))
-print(has_no_e('College'))
-print(has_no_e('EA sports'))
+# print(has_no_e('Babson')) # True
+# print(has_no_e('College')) # False
+# print(has_no_e('EA sports')) # False
 
 
 def find_words_no_e():
     """
     returns the percentage of the words that don't have the letter "e"
     """
-    count=0
-    for line in f:
-        word=line.strip
-        if has_no_e(word) in line:
-            count=count+1
-        return count
-    print(count/len(f))
+    counter_words_no_e = 0
+    counter_total = 0
 
-find_words_no_e()
-        
+    # Check each word, aka for letter in word list
+    #   increase counter_total
+    #   if the word has no e:
+    #       increase counter_words_no_e
+    #
+    # After checking all words, aka finishing for loop
+    # return counter_words_no_e / counter_total
+
+    f = open('data/words.txt')
+
+    for line in f:
+        word = line.strip()
+        counter_total += 1
+        if has_no_e(word):
+            counter_words_no_e += 1
+
+    return counter_words_no_e / counter_total
 
 
 # perc_no_e = find_words_no_e()
@@ -75,20 +81,15 @@ def avoids(word, forbidden):
     """
     returns True if the given word does not use any of the forbidden letters
     """
-    for letter in word:
-        if forbidden in word.lower():
-            return False 
-    return True
-        
+    if forbidden in word:
+        return False
+    else:
+        return True
 
 
-        
-    pass
-
-
-# print(avoids('Babson', 'abcde'))
-# print(avoids('College', 'e'))
-# print(avoids('Boston', 'xyz'))
+print(avoids('Babson', 'abcde'))
+print(avoids('College', 'e'))
+print(avoids('Boston', 'xyz'))
 
 
 def find_words_no_vowels():
@@ -182,5 +183,6 @@ def is_abecedarian_using_while(word):
     (double letters are ok).
     """
     pass
+
 
 # print(is_abecedarian_using_while('abcdef'))
