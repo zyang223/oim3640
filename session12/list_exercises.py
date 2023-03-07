@@ -120,7 +120,7 @@ def is_anagram(word1, word2):
     >>> is_anagram([1, 2, 2], [2, 1, 2])
     Ture
     """# From CHATGPT I feel I still not understand the logic here
-
+    # Class note sorted(name)=sorted(word)
     count1={}
     count2={}
     for letter in word1:
