@@ -18,30 +18,30 @@ Requirements:
 - Use meaningful function and variable names.
 """
 
-def identify_inappropriate_words():
-    f = open('data/words.txt')
-    for line in f:
-        word=line.strip()
-        if covid(word) and twice(word)and startwithend(word)==True:
-            print (f"{word} is inappropriate")
-            return True
-        else:
-            return False
-            
 
+def identify_inappropriate_words():
+
+    f = open("data/drunkard_words.txt")
+    result=[]
+    for line in f:
+        word = line.strip()
+        if covid(word) and twice(word) and startwithend(word) == True:
+            print(f"{word} is inappropriate")
+            result.append(word)
+    return result
 
 
 def covid(word):
-    count=0
-    list=["c","o","v","i","d"]
+    """The word contains at least three letters from "covid"."""
+    count = 0
+    letters = ["c", "o", "v", "i", "d"]
     for letter in word:
-        if list in word:     #different need to be updated
-            count=count+1  
-        if count >3:
+        if letter in word:  # different need to be updated
+            count = count + 1
+        if count > 3:
             return True
-        return False
+    return False
 
-            
 
 def twice(word):
     """Returns True if any element appears more than once in a sequence.
@@ -58,12 +58,11 @@ def twice(word):
             return True
     return False
 
+
 def startwithend(word):
-    t=list[word]
-    start=t[0]
-    end=t[-1]
-    if start!=end:
-        return False
-    return True
+    """ The word starts and ends with the same letter (any letter)"""
+    if word[0]==word[-1]:
+        return True
+    return False
 
-
+print(identify_inappropriate_words())
