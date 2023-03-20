@@ -61,10 +61,11 @@ def total_words(hist):
     # for word in hist.keys():
     #     total=total+hist[word]
     # return total
-    return len(hist)
+    return sum(hist.values())
 
 def different_words(hist):
     """Returns the number of different words in a histogram."""
+    return len(hist)
 
 
 def most_common(hist, excluding_stopwords=False):
@@ -77,9 +78,9 @@ def most_common(hist, excluding_stopwords=False):
     res=[]
     stopword=process_file('data/stopwords.txt',skip_header=False)
     for word in hist:
-        if exclude_stopwords:
-            if word in stopwords:
-                continute
+        if excluding_stopwords:
+            if word in stopword:
+                continue
         freq=hist[word]
         res.append((freq,word))
         
@@ -87,15 +88,16 @@ def most_common(hist, excluding_stopwords=False):
     return res
 
 
-    return res
-
 def print_most_common(hist, num=10):
     """Prints the most commons words in a histgram and their frequencies.
 
     hist: histogram (map from word to frequency)
     num: number of words to print
     """
-    pass
+    words=most_common(hist)[:num]
+    for word,freq in words:
+        print(f"{word}:{freq}")
+    
 
 
 def subtract(d1, d2):
@@ -103,7 +105,11 @@ def subtract(d1, d2):
 
     d1, d2: dictionaries
     """
-    pass
+    res={}
+    for key in d1:
+        if key not in d2:
+            res[key]=d1[key]
+        return res
 
 
 def random_word(hist):
@@ -111,30 +117,43 @@ def random_word(hist):
 
     The probability of each word is proportional to its frequency.
     """
-    pass
+    word=[]
+    freq=[]
+    total_freq=0
+    for freq in hist:
+        total_freq=total_freq+freq
+    for word in hist:
+        word.append(word)
+        freq.append(freq/total_freq)
+    return random.choices(word,freq)[0]
+    
+
+    
+    
+
 
 
 def main():
     hist = process_file('data/Pride and Prejudice.txt', skip_header=True)
     print(hist)
     print('Total number of words:', total_words(hist))
-    # print('Number of different words:', different_words(hist))
+    print('Number of different words:', different_words(hist))
 
-    # t = most_common(hist, excluding_stopwords=True)
-    # print('The most common words are:')
-    # for freq, word in t[0:20]:
-    #     print(word, '\t', freq)
+    t = most_common(hist, excluding_stopwords=True)
+    print('The most common words are:')
+    for freq, word in t[0:20]:
+        print(word, '\t', freq)
 
-    # words = process_file('words.txt', skip_header=False)
+    words = process_file('words.txt', skip_header=False)
 
-    # diff = subtract(hist, words)
-    # print("The words in the book that aren't in the word list are:")
-    # for word in diff.keys():
-    #     print(word, end=' ')
+    diff = subtract(hist, words)
+    print("The words in the book that aren't in the word list are:")
+    for word in diff.keys():
+        print(word, end=' ')
 
-    # print("\n\nHere are some random words from the book")
-    # for i in range(100):
-    #     print(random_word(hist), end=' ')
+    print("\n\nHere are some random words from the book")
+    for i in range(100):
+        print(random_word(hist), end=' ')
 
 
 if __name__ == '__main__':
