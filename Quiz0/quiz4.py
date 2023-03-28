@@ -91,9 +91,11 @@ def get_smallest_town() -> str:
     response_text= f.read().decode("utf-8")
     response_data=json.loads(response_text)
     smallaest_town=response_data["data"][0]
+    print(smallaest_town)
     for town in response_data["data"]:
        if town["population"]<smallaest_town["population"]:
         smallaest_town=town
+        print(smallaest_town)
     return smallaest_town["name"]
 print(get_smallest_town())
 
