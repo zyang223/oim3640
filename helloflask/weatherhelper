@@ -1,0 +1,17 @@
+import urllib.request
+import json
+import pprint
+
+def get_temperature() -> list:
+    temperature=[]
+    """
+    Returns a sorted list of town names
+    """
+    url="http://107.173.19.148:81/mass"
+    f=urllib.request.urlopen(url)
+    response_text= f.read().decode("utf-8")
+    response_data=json.loads(response_text)
+    pprint.pprint(response_data)
+    return response_data["main"]["temp"]
+
+print(get_temperature())
