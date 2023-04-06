@@ -118,6 +118,14 @@ def get_mayor_dict() -> dict:
     """
     Returns a dictionary that maps mayors to their towns, {str: list}
     """
+    mayor_dict=[]
+    url="http://107.173.19.148:81/mass"
+    f=urllib.request.urlopen(url)
+    response_text= f.read().decode("utf-8")
+    response_data=json.loads(response_text)
+    smallaest_town=response_data["data"][0]
+    for town in response_data:
+        town_names.append(town["name"])
 
 
 ## When you've completed your function, uncomment the following lines and run this file to test!

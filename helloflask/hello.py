@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template
 
 app = Flask(__name__)
 
@@ -6,7 +6,9 @@ app = Flask(__name__)
 @app.route("/hello/<name>")
 def hello_world(name=None):
     if name:
-        return f"hello,{name}!</h1><p> I am excited to learn Flask.</p>"
+    #     return f"hello,{name},!</h1><p> I am excited to learn Flask.</p>"
+    # return "HELLO WORLD"
+        return render_template("index.html",name=name)
     return "HELLO WORLD"
 
 @app.route("/square/")
