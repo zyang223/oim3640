@@ -40,20 +40,23 @@ def parse_html(html):
     stock_list = []
     pprint.pprint(stock_table.prettify())
     for stock_row in stock_table.find_all('tr'):
-        stock_name=stock_row.find('td',attrs={"class":"simpTblRow Bgc($hoverBgColor):h BdB Bdbc($seperatorColor) Bdbc($tableBorderBlue):h H(32px) Bgc($lv2BgColor)"})
-        symbol=stock_row.find('td',attrs={'class':"Va(m) Ta(start) Pstart(6px) Pend(15px) Start(0) Pend(10px) simpTblRow:h_Bgc($hoverBgColor)  Pos(st) Bgc($lv3BgColor) Z(1)  Bgc($lv2BgColor)  Ta(start)! Fz(s)"})
-        # price=stock_row.find('td',attrs={'colspan class':'Last Price'})
-        # change=stock_row.find('td',attrs={'colspan class':''})
-        # change_percent=stock_row.find('td',attrs={'colspan class':'Symbol'})
-        # volume=stock_row.find('td',attrs={'colspan class':'Symbol'})
-        # market_cap=stock_row.find('td',attrs={'colspan class':'Symbol'})
-        stock_list.append((stock_name,symbol))
+        stock_name=stock_row.find('td',attrs={"aria-label":"Name"})
+        symbol=stock_row.find('td',attrs={'aria-label':"Symbol"})
+        symbol_text=symbol.find("a").string
+        price=stock_row.find('td',attrs={'colspan class':'Last Price'})
+        change=stock_row.find('td',attrs={'colspan class':''})
+        change_percent=stock_row.find('td',attrs={'colspan class':'Symbol'})
+        volume=stock_row.find('td',attrs={'colspan class':'Symbol'})
+        market_cap=stock_row.find('td',attrs={'colspan class':'Symbol'})
+        print(symbol_text,stock_name)
+        stock_list.append((stock_name,symbol,price,change,change_percent,volume,market_cap))
     return stock_list
 
-print(parse_html(download_page(DOWNLOAD_URL)))
+parse_html(download_page(DOWNLOAD_URL))
 def main():
     """"""
-
+    print(download_page(DOWNLOAD_URL))
+    print(parse_html(download_page(DOWNLOAD_URL)))
 
 if __name__ == '__main__':
     main()
