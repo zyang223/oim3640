@@ -17,6 +17,24 @@ class bank:
         if self.balance != 0:
             self.trans = [-self.balance]
         return f"Your money has been stolen: {self.holder}{self.balance}{self.trans},"
+   
+    def __add__(self, other):
+        if isinstance(other, (int, float)):
+            self.balance += other
+            self.trans.append(other)
+        else:
+            raise TypeError(f"unsupported operand type(s) for +: 'bank' and '{type(other).__name__}'")
+        return self
+    
+    def deposit(self, amount):
+        self.balance += amount
+        self.trans.append(amount)
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            raise ValueError("insufficient funds")
+        self.balance -= amount
+        self.trans.append(-amount
 
 Zide = bank("Zide", "9999", "credit", "001")
 Dapanji = bank("dapanji", "0", "debt")
