@@ -15,13 +15,13 @@ LEGENDARIES = {
 
 import math
 class Team:
-    squad=None
-    if squad is None:
-        squad=[]
+    initial_players=None
+    if initial_players is None:
+        initial_players=[]
     
-    def __init__(self,name, initial_players,):
-        self.name=name
-        self.initial_players=initial_players     
+    def __init__(self, name, initial_players=None):
+        self.name = name
+        self.squad = initial_players
 
     def __str__(self):
         """Return a string representation of this team, including the team name and squad.
@@ -32,8 +32,7 @@ class Team:
         return f"team name{self.name} has{self.squad}"
     
     def draft(self,player):
-        for player in PLAYERS:
-            if player==player:
+        if player in PLAYERS:
                 self.squad.append(player)
         return self.squad
     
@@ -52,11 +51,10 @@ class Team:
         Args:
             player (str): The name of the legendary player to be drafted.
         """
-        for player in LEGENDARIES:
-            if player==player:
-                self.squad.append(player[0])
-                self.rating=self.rating*player[1]
-            return self.squad,self.rating
+        if player in LEGENDARIES:
+            self.squad.append(player[0])
+            self.rating = self.rating * player[1]
+            return self.squad, self.rating
     
     def __gt__(self,other):
         if self.rating >other.rating:
@@ -75,27 +73,26 @@ def main():
 
 
 
-    # print()
-    # print('After drafting squad:')
-    # barcelona.draft('Robert Lewandowski')
-    # real_madrid.draft('Kylian Mbappe')
-    # barcelona.draft('Pedri')
-    # real_madrid.draft('Luka Modric')
-    # barcelona.draft('Frenkie de Jong')
-    # print(real_madrid)
-    # print(barcelona)
-    # print()
-    # print('Will Barcelona defeat Real Madrid?')
-    # print(barcelona > real_madrid)
-    # print()
-    # print('After drafting legendary:')
-    # real_madrid.draft_legendary('Cristiano Ronaldo')
-    # barcelona.draft_legendary('Lionel Messi')
-    # print(real_madrid)
-    # print(barcelona)
-    # print()
-    # print('Will Barcelona defeat Real Madrid?')
-    # print(barcelona > real_madrid)
+    print()
+    print('After drafting squad:')
+    barcelona.draft('Robert Lewandowski')
+    real_madrid.draft('Kylian Mbappe')
+    barcelona.draft('Pedri')
+    real_madrid.draft('Luka Modric')
+    barcelona.draft('Frenkie de Jong')
+    print(real_madrid)
+    print(barcelona)
+    print()
+    print('Will Barcelona defeat Real Madrid?')
+    print(barcelona > real_madrid)
+    print()
+    print('After drafting legendary:')
+    real_madrid.draft_legendary('Cristiano Ronaldo')
+    barcelona.draft_legendary('Lionel Messi')
+    print(real_madrid)
+    print(barcelona)
+    print('Will Barcelona defeat Real Madrid?')
+    print(barcelona > real_madrid)
 
 
 if __name__ == '__main__':
