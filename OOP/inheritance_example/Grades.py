@@ -16,6 +16,7 @@ class Grades:
             raise ValueError("Duplicate student")
         self.students.append(student)
         self.grades[student.id] = []
+        print(self.grades)
         self.is_sorted = False
 
     def add_grade(self, student, grade):

@@ -31,7 +31,7 @@ def main():
     p1 = BabsonPerson('Zhi Li')
     p2 = BabsonPerson('Jacob Foti')
     p3 = BabsonPerson('Amanda Liu')
-    p4 = Person('Donald Trump')
+    p4 = BabsonPerson('Donald Trump')
 
     print(p4.id)
 
