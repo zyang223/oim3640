@@ -37,7 +37,7 @@ class Team:
         return self.squad
     
     def calc_rating(self):
-        if self.squad==None:
+        if self.squad is None:
             self.rating=0
         else:
             self.rating=math.average(self.rating)
